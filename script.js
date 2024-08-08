@@ -10,13 +10,11 @@ const data= [
 ]
 
 const cardContainer = document.getElementsByClassName('cardcontainer')[0];
-// const singleCard = document.getElementsByClassName("card")[0];
 const buttoncontainer = document.getElementsByClassName('buttoncontainer')[0];
 const buttonShowAll = document.getElementById('All');
-// const allButtons = Array.from(document.getElementsByClassName('buttoncontainer--singlebutton'));
+const inputElement = document.getElementsByClassName('mainwrapper--input')[0];
 
-// createCard();
-
+showAll();
 
 const categoryArray=[];
 
@@ -31,7 +29,24 @@ uniqueCategoryArray.forEach((category)=>{
     createButtons(category);
 })
 
-showAll();
+
+inputElement.addEventListener('input',(e)=>{
+    // console.log(e.target.value);
+    cardContainer.innerHTML="No product available";
+    const inputText = e.target.value.toLowerCase().trim();
+    const newArray =[]
+   data.forEach((products)=>{
+     
+    if( products.name.toLowerCase().includes(inputText)){
+        cardContainer.innerHTML="";
+        newArray.push(products);
+        newArray.forEach(({id,name,price,category,image})=>{
+            createCard(id,name,price,category,image)
+        })
+    }
+})
+})
+
 
 function showAll(){
     data.forEach(({id,name,price,category,image})=>{

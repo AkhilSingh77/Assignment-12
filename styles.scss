@@ -22,22 +22,41 @@
             background-color: $button-Color ;
             border: none;
             color: white;
-            font-size: pxtorem(16px);
+            font-size: pxtorem(14px);
             border-radius: pxtorem(5px);
-            padding: pxtorem(10px) pxtorem(20px);
+            padding: pxtorem(5px) pxtorem(10px);
+            @media(min-width:676px){
+                padding: pxtorem(10px) pxtorem(20px);
+                font-size: pxtorem(16px);
+            }
         }
         &--singlebutton:hover{
             cursor: pointer;
             background-color:$button-ColorOnHover ;
         }
-    }
+    };
+
+   &--input{
+    padding: pxtorem(6px);
+   }
 
     .cardcontainer{
         // background-color: rgb(184, 67, 67);
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr  ;
         gap:pxtorem(20px);
 
+
+        @media(min-width:471px){
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media(min-width:676px){
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (min-width:940px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
         
 
         .card{
@@ -46,9 +65,13 @@
         // background-color: rgb(206, 206, 112);
            display: flex;
            flex-direction: column;
+          align-items: center;
            gap: pxtorem(20px);
            border: 1px solid rgb(195, 192, 192);
            border-radius: pxtorem(6px);
+           @media(min-width:471px){
+            align-items: flex-start;
+        }
         &__top{
             &--img{
                 border-radius: pxtorem(4px);
