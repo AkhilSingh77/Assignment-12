@@ -1,3 +1,85 @@
 @import "scss-files/boilerplate";
 @import "scss-files/colors";
 @import "scss-files/mixin";
+@import "scss-files/function";
+
+.mainwrapper{
+    // background-color: burlywood;
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+    .buttoncontainer{
+        display: flex;
+        gap: pxtorem(12px);
+        flex-wrap: wrap;
+
+        &--singlebutton{
+            background-color: $button-Color ;
+            border: none;
+            color: white;
+            font-size: pxtorem(16px);
+            border-radius: pxtorem(5px);
+            padding: pxtorem(10px) pxtorem(20px);
+        }
+        &--singlebutton:hover{
+            cursor: pointer;
+            background-color:$button-ColorOnHover ;
+        }
+    }
+
+    .cardcontainer{
+        // background-color: rgb(184, 67, 67);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap:pxtorem(20px);
+
+        
+
+        .card{
+            // place-self: center;
+            padding: pxtorem(12px);
+        // background-color: rgb(206, 206, 112);
+           display: flex;
+           flex-direction: column;
+           gap: pxtorem(20px);
+           border: 1px solid rgb(195, 192, 192);
+           border-radius: pxtorem(6px);
+        &__top{
+            &--img{
+                border-radius: pxtorem(4px);
+            }
+        }
+
+        &__bottom{
+            display: flex;
+            flex-direction: column;
+            gap:pxtorem(17px);
+
+            &--heading{
+                font-size: pxtorem(19px);
+            }
+            &--price{
+                color: $price-color;
+                font-weight: 700;
+            }
+            &--tag{
+                background-color:$tag-color ;
+                font-size: pxtorem(14px);
+                width: fit-content;
+                padding: pxtorem(5px) pxtorem(8px);
+                border-radius: pxtorem(50px);
+            }
+        }
+        }
+        .card:hover{
+            cursor: pointer;
+            scale: 1.005;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+    }
+}
